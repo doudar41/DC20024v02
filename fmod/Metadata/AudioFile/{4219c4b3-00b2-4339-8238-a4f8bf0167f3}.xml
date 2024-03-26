@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{4219c4b3-00b2-4339-8238-a4f8bf0167f3}">
+		<property name="assetPath">
+			<value>KnifeWhoosh02-002.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.29395833333333332</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ad81ed92-3048-4ee4-9468-5bc686581a17}</destination>
+		</relationship>
+	</object>
+</objects>
