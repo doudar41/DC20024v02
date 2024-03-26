@@ -5,6 +5,17 @@ using UnityEngine.UI;
 using TMPro;
 
 public class Hero : MonoBehaviour
+/*
+@todo in progress writing
+@class Hero
+    represents a player character.
+@param { int } Constitution, Agility, Intellect, Luck
+    player's attributes for skill calculations
+@param { float } health, stamina 
+    player's health and stamina capacities.
+@param { int } heroLevel
+    The player's level they have attained
+*/
 {
 
     public int Constitution = 5, Agility = 5, Intellect = 5, Luck = 5;
