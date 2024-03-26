@@ -18,6 +18,8 @@ public class SequencerWeapon : MonoBehaviour
     int quantityOfRunes = 5;
     public DetectBeat detectBeat;
     List<StepEffect> memorizedEffects = new List<StepEffect>();
+    int memorizedEffectAmout = 0;
+    Enemy currentTarget;
 
     int runesInRow01, runesInRow02, runesInRow03, runesInRow04, runesInRow05;
     public UISpriteAnimation[] vfxs;
@@ -133,6 +135,8 @@ public class SequencerWeapon : MonoBehaviour
                 break;
             case StepEffect.fire:
                 print("playing VFX");
+                if (currentTarget != null)
+                    currentTarget.HarmEnemy(8 * sequenceWeapon[0].rowLevel);
                 vfxs[1].Func_PlayUIAnim();
                 break;
             case StepEffect.earth:
@@ -143,6 +147,8 @@ public class SequencerWeapon : MonoBehaviour
                 break;
             case StepEffect.neutral:
                 print("playing VFX");
+                if (currentTarget !=null)
+                currentTarget.HarmEnemy(10 * sequenceWeapon[0].rowLevel);
                 vfxs[0].Func_PlayUIAnim();
                 break;
         }
@@ -201,6 +207,12 @@ public class SequencerWeapon : MonoBehaviour
     public void GetStepFromButton(Step step)
     {
         chosenStep = step;
+    }
+
+    public void GetEnemy(Enemy enemy)
+    {
+        print(enemy.name);
+        currentTarget = enemy;
     }
 
 }
