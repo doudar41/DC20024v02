@@ -4,6 +4,9 @@ using UnityEngine;
 
 [CreateAssetMenu]
 public class AnimatedAvatar : ScriptableObject
+/*
+
+*/
 {
     public Sprite[] spritesIdle;
     public Sprite[] talkSprites;
