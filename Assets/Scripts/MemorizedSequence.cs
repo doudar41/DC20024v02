@@ -30,7 +30,6 @@ public class MemorizedSequence : ScriptableObject
                 {
                     sequence[s].SetStepInRow(i, sequenceFromTable[s].GetStepFromRow(i));
                 }
-                    
             }
         }
     }
