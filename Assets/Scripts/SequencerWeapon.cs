@@ -15,6 +15,7 @@ public class SequencerWeapon : MonoBehaviour
     public int countStepMax = 4; //should be twice bigger than toggle buttons on panel
     bool action = true;
     Step chosenStep = new Step();
+    List<Chord> memorizedChords = new List<Chord>();
     public int ownedRunes = 5; 
     int quantityOfRunes = 5;
     public DetectBeat detectBeat;
@@ -38,11 +39,12 @@ public class SequencerWeapon : MonoBehaviour
         sequenceWeapon[1] = new SequenceRow();
         sequenceWeapon[1].rowEffect = StepEffect.fire;
         sequenceWeapon[2] = new SequenceRow();
-        sequenceWeapon[2].rowEffect = StepEffect.water;
+        sequenceWeapon[2].rowEffect = StepEffect.ice;
         sequenceWeapon[3] = new SequenceRow();
         sequenceWeapon[3].rowEffect = StepEffect.earth;
         sequenceWeapon[4] = new SequenceRow();
         sequenceWeapon[4].rowEffect = StepEffect.air;
+
     }
 
 
@@ -78,8 +80,8 @@ public class SequencerWeapon : MonoBehaviour
         {
             if (sequenceWeapon[i].GetStepFromRow(countSteps) != null)
             {
-                int damage = 0;
-                
+                //if (runePool <= 0) return;
+                // rune from pool gone --
                 //print("effect "+ sequenceWeapon[i].GetStepFromRow(countSteps).stepEffect);
                 string nameParameter = "";
                 effectsCombo.Add(sequenceWeapon[i].rowEffect);
@@ -102,6 +104,16 @@ public class SequencerWeapon : MonoBehaviour
                         nameParameter = "SequenceStep03";
                         runesInRow03++;
                         break;
+                    case 3:
+                        //launch fire damage
+                        nameParameter = "SequenceStep04";
+                        runesInRow04++;
+                        break;
+                    case 4:
+                        //launch fire damage
+                        nameParameter = "SequenceStep05";
+                        runesInRow05++;
+                        break;
                 }
                 detectBeat.SetParameterToInstance(nameParameter, i);
                 // this is not working
@@ -120,10 +132,19 @@ public class SequencerWeapon : MonoBehaviour
                     case 2:
                         nameParameter = "SequenceStep03";
                         break;
+                    case 3:
+                        nameParameter = "SequenceStep04";
+                        break;
+                    case 4:
+                        nameParameter = "SequenceStep05";
+                        break;
                 }
                 detectBeat.SetParameterToInstance(nameParameter, 17);
             }
         }
+        Chord chord = new Chord();
+        chord.effects = effectsCombo;
+        memorizedChords.Add(chord);
 
         //Rules of combos
         if (effectsCombo.Contains(StepEffect.neutral) && effectsCombo.Contains(StepEffect.fire))
@@ -136,9 +157,40 @@ public class SequencerWeapon : MonoBehaviour
         
         countSteps++;
         if (countSteps >= countStepMax) {
+            int[] countCombos = new int[6];
+            foreach (Chord c in memorizedChords)
+            {
+                if (c.effects.Contains(StepEffect.fire) || c.effects.Contains(StepEffect.ice)) { countCombos[0]++; }
+                if (c.effects.Contains(StepEffect.fire) || c.effects.Contains(StepEffect.air)) { countCombos[1]++; }
+                if (c.effects.Contains(StepEffect.fire) || c.effects.Contains(StepEffect.earth)) { countCombos[2]++; }
+                if (c.effects.Contains(StepEffect.ice) || c.effects.Contains(StepEffect.earth)) { countCombos[3]++; }
+                if (c.effects.Contains(StepEffect.ice) || c.effects.Contains(StepEffect.air)) { countCombos[4]++; }
+                if (c.effects.Contains(StepEffect.earth) || c.effects.Contains(StepEffect.air)) { countCombos[5]++; }
+            }
+            for(int i = 0; i < countCombos.Length; i++)
+            {
+                if (countCombos[i] != 0)
+                {
+                    switch (i){
+                        case 0:
+                            int rand = Random.Range(0, 10 - countCombos[i]);
+                            if (rand == 0)
+                            {
+                                // heal player
+                                //burn target
+                            }
+                            break;
+                        case 1:
+                            // calculate and apply Fire/Air rule
+                            break;
+                    }
+                }
+            }
+            memorizedChords.Clear();
             //make some use of number of runes in rows, compare them with amount of cells in row, and reset it 
             runesInRow01 = 0; runesInRow02 = 0; runesInRow03 = 0; runesInRow04 = 0; runesInRow05 = 0;
-            countSteps = 0; }
+            countSteps = 0;
+        }
     }
 
     public void PlayVFXAndApplyDamage(StepEffect ef)
@@ -158,7 +210,7 @@ public class SequencerWeapon : MonoBehaviour
             case StepEffect.earth:
                 print("playing VFX");
                 break;
-            case StepEffect.water:
+            case StepEffect.ice:
                 print("playing VFX");
                 break;
             case StepEffect.neutral:
@@ -211,9 +263,9 @@ public class SequencerWeapon : MonoBehaviour
     {
         switch (sf)
         {
-            case StepEffect.missile:
+            case StepEffect.neutral:
                 return effectSprites[(int)sf];
-            case StepEffect.shield:
+            case StepEffect.fire:
                 return effectSprites[(int)sf];
         }
         return null;
@@ -264,18 +316,30 @@ public class SequenceRow
 [System.Serializable]
 public class Step
 {
-    public StepEffect stepEffect = StepEffect.missile;
+    public StepEffect stepEffect = StepEffect.neutral;
 }
 
 [System.Serializable]
 public enum StepEffect
 {
-    missile,
-    shield,
-    heal,
     air,
     fire,
     earth,
-    water,
+    ice,
     neutral
+}
+
+public class Chord
+{
+    public List<StepEffect> effects = new List<StepEffect>();
+}
+
+public enum Combos
+{
+    fireIce,
+    fireAir,
+    fireEarth,
+    IceAir,
+    IceEarth,
+    EarthAir
 }
