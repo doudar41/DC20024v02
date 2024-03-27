@@ -71,6 +71,13 @@ public class Hero : MonoBehaviour
 
 
     void GeneratingSong(int number)
+    /*
+    @todo in progress writing
+    @method GeneratingSong
+        
+    @param { int } number 
+        the number of runes generated with a value of 0 to 15
+    */
     {
         List<int> tempList = new List<int>();
 
@@ -113,6 +120,13 @@ public class Hero : MonoBehaviour
     }
 
     public void GetClick()
+    /*
+    @todo inProgress: confirming
+    @method GetClick
+        gets the current metronome click
+        gets the current click value for use as comparison for event triggers
+        indicates the UI feedback for the player
+    */
     {
         if (doesWait)
         {
@@ -140,6 +154,14 @@ public class Hero : MonoBehaviour
 
 
     public void LaunchSequence()
+    /*
+    @todo inProgress
+    @method LaunchSequence()
+        is called when the player has selected their runesong is ready to deploy it,
+            - deals harm to the enemy
+            - applies the runesong effect
+            - increments the counter that tracks the sequence
+    */
     {
         if (countInSequence == sequences[0].runeSongSequence.Length)
         {
@@ -163,6 +185,13 @@ public class Hero : MonoBehaviour
     }
 
     public void GetEnemy(Enemy enemy)
+    /*
+    @todo inProgress
+    @method GetEnemy
+        sets the current enemy to the enemy passed in
+    @param { Enemy } enemy
+        the enemy to be set as the current enemy
+    */
     {
         print(enemy.name);
         currentEnemy = enemy;
@@ -232,6 +261,13 @@ public class Hero : MonoBehaviour
 
 [System.Serializable]
 public class RuneSequence
+/*
+@todo inProgress
+@class RuneSequence
+    is a container class which holds 
+        - a runeSongSequence of 16 booleans in an array, and
+        - a runeSongEffect which indicates the effect of the rune song
+*/
 {
     public bool[] runeSongSequence = new bool[16];
     public RuneEffect runeSongEffect;
