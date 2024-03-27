@@ -1,0 +1,14 @@
+{ "columns":24,
+ "image":"plasterw.png",
+ "imageheight":512,
+ "imagewidth":384,
+ "margin":0,
+ "name":"white_plaster",
+ "spacing":0,
+ "tilecount":768,
+ "tiledversion":"1.10.2",
+ "tileheight":16,
+ "tilewidth":16,
+ "type":"tileset",
+ "version":"1.10"
+}

@@ -11,6 +11,20 @@ public class Runes : MonoBehaviour
     }
 
     RuneSong RuneLengthAnalize(bool[] sequence)
+    /*
+    @description
+    This method checks the runesong.sequence and determines:
+        - How much length remains
+        - Whether a given list of runes fits in the runesong.sequence
+        - Runes are added from longest to shortest
+        - Outputs a string of runes in the sequence
+    
+    @todo
+    - See if these blocks can be refactored not to use nested if-else
+        - for(int i = 0; i < temp.Count; i++)
+        - for (int i = 0; i < temp.Count; i++)
+            
+    */
     {
         Rune[] sequenceRune = new Rune[16];
         RuneSong tempSong = new RuneSong();
@@ -85,6 +99,16 @@ public class Runes : MonoBehaviour
 }
 
 public class Rune
+/**
+@class Rune
+- Rune strength is a measure of its effectiveness
+- The rune level starts at 4 and levels down to 0
+- Each level has an associated length.
+- Each time a rune is used there is an associated luck roll
+    Luck roll adds bonus damage
+    The shorter the rune, the more runes can be used per turn
+    The more runes used, the more bonus damage potential
+*/
 {
     public int position;
     public int level;
@@ -126,6 +150,19 @@ public class Rune
 }
 
 public class RuneSong
+/*
+@description
+    A container class with runes arranged in a sequence
+    This is the sequence played to use a skill
+    A rune song has a max length of 16 corresponding to rune.length
+    The length of the song must below this threshold
+        - add together the lengths of all the runes in the song
+        - do not allow the song to exceed 16
+    Each runesong has an effect as defined by the RuneEffect enum
+
+@todo
+    Consult and decide on how this ought to work
+*/
 {
     public Rune[] sequence = new Rune[16];
     public bool[] filledPositions = new bool[16];
@@ -145,6 +182,11 @@ public class RuneSong
 }
 
 public enum RuneEffect
+/*
+@description
+    - Runesongs can have effects as defined below.
+    - This will correspond to effects the game will have in the world and battle.
+*/
 {
     damageHealth,
     heal,
