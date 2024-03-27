@@ -7,8 +7,9 @@ using TMPro;
 public class SequencerWeapon : MonoBehaviour
 {
 
-    SequenceRow[] sequenceWeapon = new SequenceRow[3];
+    SequenceRow[] sequenceWeapon = new SequenceRow[5];
     public Sprite[] effectSprites;
+    public MemorizedSequence prefabMemory01;
 
     int countSteps = 0;
     public int countStepMax = 4; //should be twice bigger than toggle buttons on panel
@@ -18,6 +19,8 @@ public class SequencerWeapon : MonoBehaviour
     int quantityOfRunes = 5;
     public DetectBeat detectBeat;
     List<StepEffect> memorizedEffects = new List<StepEffect>();
+    int memorizedEffectAmout = 0;
+    Enemy currentTarget;
 
     int runesInRow01, runesInRow02, runesInRow03, runesInRow04, runesInRow05;
     public UISpriteAnimation[] vfxs;
@@ -36,6 +39,21 @@ public class SequencerWeapon : MonoBehaviour
         sequenceWeapon[1].rowEffect = StepEffect.fire;
         sequenceWeapon[2] = new SequenceRow();
         sequenceWeapon[2].rowEffect = StepEffect.water;
+        sequenceWeapon[3] = new SequenceRow();
+        sequenceWeapon[3].rowEffect = StepEffect.earth;
+        sequenceWeapon[4] = new SequenceRow();
+        sequenceWeapon[4].rowEffect = StepEffect.air;
+    }
+
+
+    public void SaveSequence()
+    {
+        prefabMemory01.WriteToSequence(sequenceWeapon);
+    }
+
+    public void ReadMemory()
+    {
+        sequenceWeapon = prefabMemory01.GetSequenceFromMemory();
     }
 
     public void StepReader()
@@ -133,6 +151,8 @@ public class SequencerWeapon : MonoBehaviour
                 break;
             case StepEffect.fire:
                 print("playing VFX");
+                if (currentTarget != null)
+                    currentTarget.HarmEnemy(8 * sequenceWeapon[0].rowLevel);
                 vfxs[1].Func_PlayUIAnim();
                 break;
             case StepEffect.earth:
@@ -143,6 +163,8 @@ public class SequencerWeapon : MonoBehaviour
                 break;
             case StepEffect.neutral:
                 print("playing VFX");
+                if (currentTarget !=null)
+                currentTarget.HarmEnemy(10 * sequenceWeapon[0].rowLevel);
                 vfxs[0].Func_PlayUIAnim();
                 break;
         }
@@ -203,6 +225,12 @@ public class SequencerWeapon : MonoBehaviour
         chosenStep = step;
     }
 
+    public void GetEnemy(Enemy enemy)
+    {
+        print(enemy.name);
+        currentTarget = enemy;
+    }
+
 }
 
 [System.Serializable]
@@ -213,7 +241,7 @@ public class SequenceRow
     public int rowLevel = 1;
     public void SetStepInRow(int index, Step step)
     {
-        Row.Add(index, step);
+        if (Row.TryAdd(index, step)) Debug.Log("added successfully");
     }
 
     public Step GetStepFromRow(int index)
