@@ -81,6 +81,7 @@ public class SequencerWeapon : MonoBehaviour
             if (sequenceWeapon[i].GetStepFromRow(countSteps) != null)
             {
                 //if (runePool <= 0) return;
+
                 // rune from pool gone --
                 //print("effect "+ sequenceWeapon[i].GetStepFromRow(countSteps).stepEffect);
                 string nameParameter = "";
