@@ -16,7 +16,7 @@ public class PlayerCharacter : MonoBehaviour
     /// Possible player can have an invetory 
     /// </summary>
 
-    Vector3Int lastSpawnCoordinates;
+    public Vector3 lastSpawnCoordinates;
 
     public UnityEvent DeathEvent;
 
