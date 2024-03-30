@@ -75,4 +75,7 @@ crashlytics-build.properties
 
 # shortcuts
 *.lnk
-*.meta
+
+# Jade's modules
+sh/
+.gitmodules
