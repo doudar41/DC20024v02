@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum SequenceType {
@@ -11,17 +12,18 @@ public enum SequenceType {
     Air
 }
 
+public class Sequence : List<bool>
 /*
-    @class Sequence
-    @description
-        extends List<bool> as opposed to Array<bool> because the Array is a special class that is not extendable.
-        See Compiler Error CS0644 @ https://learn.microsoft.com/en-us/dotnet/csharp/misc/cs0644
-    @param {SequenceType} type
-        The type of sequence as defined in the Enum SequenceType above.
-    @param {int} capacity
-        The capacity of the sequence. A sequence must have a capacity of 8.
+@class Sequence
+@description
+    extends List<bool> as opposed to Array<bool> because the Array is a special class that is not extendable.
+    See Compiler Error CS0644 @ https://learn.microsoft.com/en-us/dotnet/csharp/misc/cs0644
+@param {SequenceType} type
+    The type of sequence as defined in the Enum SequenceType above.
+@param {int} capacity
+    The capacity of the sequence. A sequence must have a capacity of 8.
 */
-public class Sequence : List<bool> {
+{
     public SequenceType type;
 
     private readonly SequenceType _type = SequenceType.Neutral;
@@ -86,6 +88,16 @@ public class Runesong {
 
 public class RunesongLibrary : MonoBehaviour
 {
+    private readonly List<Runesong> library = new();
+    private int selectedIndex;
+
+    public RunesongLibrary(){
+    }
+
+    public RunesongLibrary(Runesong runesong){
+        library.Add(runesong);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
