@@ -78,7 +78,7 @@
 .healthCurrent {
     flex-grow: 1;
     background-image: url('project://database/Assets/Scripts/UI/4k/healthCurrent.png?fileID=2800000&guid=70065efd72023c444914aaedf47b8fe5&type=3#healthCurrent');
-    scale: 0.95 1;
+    scale: 0.75 1;
     transform-origin: left;
 }
 
