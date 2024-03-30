@@ -16,7 +16,7 @@ public class PlayerCharacter : MonoBehaviour
     /// Possible player can have an invetory 
     /// </summary>
 
-    Vector3Int lastSpawnCoordinates;
+    public Vector3 lastSpawnCoordinates;
 
     public UnityEvent DeathEvent;
 
@@ -78,6 +78,12 @@ public class PlayerCharacter : MonoBehaviour
     public void DeathEventHappens()
     {
         runeCapacity = (int)((float)runeMaxCapacity * 0.6f);
+    }
+
+    public void RefillAllValues()
+    {
+        HP = HPMax;
+        runeCapacity = runeMaxCapacity;
     }
 }
 
