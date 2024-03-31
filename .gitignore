@@ -81,4 +81,5 @@ sh/
 .gitmodules
 
 # vscode
+.vsconfig
 .vscode/
