@@ -22,50 +22,50 @@
                 <ui:VisualElement name="neutral" class="sequence sequence-netural" style="flex-grow: 1; flex-direction: row;">
                     <ui:VisualElement name="spot1" class="spot spot1" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                     <ui:VisualElement name="spot2" class="spot spot2" style="flex-grow: 1; width: 32px; max-width: 32px;" />
-                    <ui:VisualElement name="spot3" class="spot3 spot" />
-                    <ui:VisualElement name="spot4" class="spot4 spot" style="flex-grow: 1; width: 32px; max-width: 32px;" />
+                    <ui:VisualElement name="spot3" class="spot3 spot3" />
+                    <ui:VisualElement name="spot4" class="spot spot4" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                     <ui:VisualElement name="spot5" class="spot spot5" style="flex-grow: 1; width: 32px; max-width: 32px;" />
-                    <ui:VisualElement name="spot6" class="spot6 spot" style="flex-grow: 1; width: 32px; max-width: 32px;" />
+                    <ui:VisualElement name="spot6" class="spot spot6" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                     <ui:VisualElement name="spot7" class="spot spot7" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                     <ui:VisualElement name="spot8" class="spot spot8" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="fire" style="flex-grow: 1; flex-direction: row;">
                     <ui:VisualElement name="spot1" class="spot spot1" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                     <ui:VisualElement name="spot2" class="spot spot2" style="flex-grow: 1; width: 32px; max-width: 32px;" />
-                    <ui:VisualElement name="spot3" class="spot3 spot" />
-                    <ui:VisualElement name="spot4" class="spot4 spot" style="flex-grow: 1; width: 32px; max-width: 32px;" />
+                    <ui:VisualElement name="spot3" class="spot spot3" />
+                    <ui:VisualElement name="spot4" class="spot spot4" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                     <ui:VisualElement name="spot5" class="spot spot5" style="flex-grow: 1; width: 32px; max-width: 32px;" />
-                    <ui:VisualElement name="spot6" class="spot6 spot" style="flex-grow: 1; width: 32px; max-width: 32px;" />
+                    <ui:VisualElement name="spot6" class="spot spot6" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                     <ui:VisualElement name="spot7" class="spot spot7" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                     <ui:VisualElement name="spot8" class="spot spot8" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="ice" class="sequence sequence-ice" style="flex-grow: 1; flex-direction: row;">
                     <ui:VisualElement name="spot1" class="spot spot1" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                     <ui:VisualElement name="spot2" class="spot spot2" style="flex-grow: 1; width: 32px; max-width: 32px;" />
-                    <ui:VisualElement name="spot3" class="spot3 spot" />
-                    <ui:VisualElement name="spot4" class="spot4 spot" style="flex-grow: 1; width: 32px; max-width: 32px;" />
+                    <ui:VisualElement name="spot3" class="spot spot3" />
+                    <ui:VisualElement name="spot4" class="spot spot4" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                     <ui:VisualElement name="spot5" class="spot spot5" style="flex-grow: 1; width: 32px; max-width: 32px;" />
-                    <ui:VisualElement name="spot6" class="spot6 spot" style="flex-grow: 1; width: 32px; max-width: 32px;" />
+                    <ui:VisualElement name="spot6" class="spot spot6" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                     <ui:VisualElement name="spot7" class="spot spot7" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                     <ui:VisualElement name="spot8" class="spot spot8" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="earth" class="sequence sequence-earth" style="flex-grow: 1; flex-direction: row;">
                     <ui:VisualElement name="spot1" class="spot spot1" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                     <ui:VisualElement name="spot2" class="spot spot2" style="flex-grow: 1; width: 32px; max-width: 32px;" />
-                    <ui:VisualElement name="spot3" class="spot3 spot" />
-                    <ui:VisualElement name="spot4" class="spot4 spot" style="flex-grow: 1; width: 32px; max-width: 32px;" />
+                    <ui:VisualElement name="spot3" class="spot spot3" />
+                    <ui:VisualElement name="spot4" class="spot spot4" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                     <ui:VisualElement name="spot5" class="spot spot5" style="flex-grow: 1; width: 32px; max-width: 32px;" />
-                    <ui:VisualElement name="spot6" class="spot6 spot" style="flex-grow: 1; width: 32px; max-width: 32px;" />
+                    <ui:VisualElement name="spot6" class="spot spot6" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                     <ui:VisualElement name="spot7" class="spot spot7" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                     <ui:VisualElement name="spot8" class="spot spot8" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="earth" class="sequence sequence-air" style="flex-grow: 1; flex-direction: row;">
                     <ui:VisualElement name="spot1" class="spot spot1" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                     <ui:VisualElement name="spot2" class="spot spot2" style="flex-grow: 1; width: 32px; max-width: 32px;" />
-                    <ui:VisualElement name="spot3" class="spot3 spot" />
-                    <ui:VisualElement name="spot4" class="spot4 spot" style="flex-grow: 1; width: 32px; max-width: 32px;" />
+                    <ui:VisualElement name="spot3" class="spot spot3" />
+                    <ui:VisualElement name="spot4" class="spot spot4" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                     <ui:VisualElement name="spot5" class="spot spot5" style="flex-grow: 1; width: 32px; max-width: 32px;" />
-                    <ui:VisualElement name="spot6" class="spot6 spot" style="flex-grow: 1; width: 32px; max-width: 32px;" />
+                    <ui:VisualElement name="spot6" class="spot spot6" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                     <ui:VisualElement name="spot7" class="spot spot7" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                     <ui:VisualElement name="spot8" class="spot spot8" style="flex-grow: 1; width: 32px; max-width: 32px;" />
                 </ui:VisualElement>
