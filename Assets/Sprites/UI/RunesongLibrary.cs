@@ -68,15 +68,16 @@ public class Runesong : Dictionary<string,Sequence> {
 
 public class RunesongLibrary : MonoBehaviour
 {
-    private readonly Dictionary<string,Runesong> library = new();
+    private readonly Dictionary<string,Runesong> library;
     private readonly int selectedIndex;
 
     public RunesongLibrary(){
-        return;
+        this.library = new Dictionary<string,Runesong>();
     }
 
     public RunesongLibrary(Runesong runesong){
-        library.Add(runesong.GetAlias(), runesong);
+        this.library = new Dictionary<string,Runesong>();
+        this.library.Add(runesong.GetAlias(), runesong);
     }
 
     // Start is called before the first frame update
