@@ -1,116 +1,106 @@
-// using System;
-// using System.Collections;
-// using System.Collections.Generic;
-// using Unity.VisualScripting;
-// using UnityEngine;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
+using Unity.VisualScripting;
+using UnityEngine;
 
-// public enum SequenceType {
-//     Neutral,
-//     Fire,
-//     Ice,
-//     Earth,
-//     Air
-// }
+public enum SequenceType {
+    Neutral,
+    Fire,
+    Ice,
+    Earth,
+    Air
+}
 
-// public class Sequence : List<bool>
-// /*
-// @class Sequence
-// @description
-//     extends List<bool> as opposed to Array<bool> because the Array is a special class that is not extendable.
-//     See Compiler Error CS0644 @ https://learn.microsoft.com/en-us/dotnet/csharp/misc/cs0644
-// @param {SequenceType} type
-//     The type of sequence as defined in the Enum SequenceType above.
-// @param {int} capacity
-//     The capacity of the sequence. A sequence must have a capacity of 8.
-// */
-// {
-//     public SequenceType type;
-
-//     private readonly SequenceType _type = SequenceType.Neutral;
-
-//     public Sequence(SequenceType type, int capacity) : base(capacity) {
-//         this.type = type;
-//     }
-
-// }
-
-// public class Runesong {
-//     private readonly Sequence neutral = new(SequenceType.Neutral, 8);
-//     private readonly Sequence fire = new(SequenceType.Fire, 8);
-//     private readonly Sequence ice = new(SequenceType.Ice, 8);
-//     private readonly Sequence earth = new(SequenceType.Earth, 8);
-//     private readonly Sequence air = new(SequenceType.Air, 8);
-
-//     public Runesong( Sequence neutral, Sequence fire, Sequence ice, Sequence earth, Sequence air) {
-//         this.neutral = neutral;
-//         this.fire = fire;
-//         this.ice = ice;
-//         this.earth = earth;
-//         this.air = air;
-//     }
-//     public Sequence GetNeutral() {
-//         return neutral;
-//     }
-//     public Sequence GetFire() {
-//         return fire;
-//     }
-//     public Sequence GetIce() {
-//         return ice;
-//     }
-//     public Sequence GetEarth() {
-//         return earth;
-//     }
-//     public Sequence GetAir() {
-//         return air;
-//     }
-//     public void Set(SequenceType type, List<bool> sequence) {
-//         try {
-//             var result = this.GetNeutral();
-
-//             if(sequence.Capacity != 8) throw new Exception("Invalid sequence Capacity; a sequence must have Capacity 8");
-
-//             if(type == SequenceType.Neutral) result = this.GetNeutral();
-//             else if(type == SequenceType.Fire) result = this.GetFire();
-//             else if(type == SequenceType.Ice) result = this.GetIce();
-//             else if(type == SequenceType.Earth) result = this.GetEarth();
-//             else if(type == SequenceType.Air) result = this.GetAir();
-//             else throw new Exception("Invalid sequence type");
-
-//             for(int i = 0; i < sequence.Capacity; i++) result.Add(sequence[i]);
-
-//         } catch (Exception e) {
-//             Debug.Log(e);
-//         } finally {
-//             // return to creation?
-//         }
-//     }
-// }
-
-
-
-// public class RunesongLibrary : MonoBehaviour
-// {
-//     private readonly List<Runesong> library = new();
-//     private int selectedIndex;
-
-//     public RunesongLibrary(){
-//     }
-
-//     public RunesongLibrary(Runesong runesong){
-//         library.Add(runesong);
-//     }
-
-//     // Start is called before the first frame update
-//     void Start()
-//     {
+public class Sequence : Dictionary<int,bool> {
+    public SequenceType type;
+    private readonly SequenceType _type = SequenceType.Neutral;
         
-//     }
+    public Sequence(SequenceType type) : base(8)
+    {
+        this.type = type;
+    }
+}
 
-//     // Update is called once per frame
-//     void Update()
-//     {
+public class Runesong : Dictionary<string,Sequence> {
+    private readonly string alias = "";
+    private Sequence neutral = new(SequenceType.Neutral);
+    private Sequence fire = new(SequenceType.Fire);
+    private Sequence ice = new(SequenceType.Ice);
+    private Sequence earth = new(SequenceType.Earth);
+    private Sequence air = new(SequenceType.Air);
+
+    public Runesong(string alias) {
+        this.alias = alias;
+    }
+    public Runesong(string alias, Sequence neutral, Sequence fire, Sequence ice, Sequence earth, Sequence air) {
+        this.alias = alias;
+        this.neutral = neutral;
+        this.fire = fire;
+        this.ice = ice;
+        this.earth = earth;
+        this.air = air;
+    }
+
+    public string GetAlias(){
+        return this.alias;
+    }
+
+    public Sequence GetSequence(SequenceType type){
+        if(type == SequenceType.Neutral) return neutral;
+        else if(type == SequenceType.Fire) return fire;
+        else if(type == SequenceType.Ice) return ice;
+        else if(type == SequenceType.Earth) return earth;
+        else if(type == SequenceType.Air) return air;
+        else throw new Exception("Invalid sequence type");
+    }
+
+    public void SetSequence(SequenceType type, Sequence sequence){
+        if(type == SequenceType.Neutral) this.neutral = sequence;
+        else if(type == SequenceType.Fire) this.fire = sequence;
+        else if(type == SequenceType.Ice) this.ice = sequence;
+        else if(type == SequenceType.Earth) this.earth = sequence;
+        else if(type == SequenceType.Air) this.air = sequence;
+        else throw new Exception("Invalid sequence type");
+    }
+}
+
+public class RunesongLibrary : MonoBehaviour
+{
+    private readonly Dictionary<string,Runesong> library = new();
+    private readonly int selectedIndex;
+
+    public RunesongLibrary(){
+        return;
+    }
+
+    public RunesongLibrary(Runesong runesong){
+        library.Add(runesong.GetAlias(), runesong);
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
         
-//     }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 
 
-// }
+}
+
+
+public class HUD : EditorWindow
+
+    {
+        void OnGUI () {
+            // The actual window code goes here
+            var hud = 
+           }
+    }
+
