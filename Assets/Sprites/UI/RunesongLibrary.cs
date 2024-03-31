@@ -95,12 +95,3 @@ public class RunesongLibrary : MonoBehaviour
 }
 
 
-public class HUD : EditorWindow
-
-    {
-        void OnGUI () {
-            // The actual window code goes here
-            var hud = 
-           }
-    }
-

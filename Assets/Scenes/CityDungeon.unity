@@ -869,9 +869,17 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1128761913, guid: 0ef26db73bf2483428e98977ed85b4b9, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4806292596414026188, guid: 0ef26db73bf2483428e98977ed85b4b9, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 341123635}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ef26db73bf2483428e98977ed85b4b9, type: 3}
+--- !u!4 &147403597 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4806292596414026188, guid: 0ef26db73bf2483428e98977ed85b4b9, type: 3}
+  m_PrefabInstance: {fileID: 147403596}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &192003438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,6 +1530,68 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287951157}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &341123634
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 147403597}
+    m_Modifications:
+    - target: {fileID: 1509108368648169460, guid: abd0b9dee7d9b1e40b5ff484ce15bb1a, type: 3}
+      propertyPath: m_Name
+      value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 3685546961486152011, guid: abd0b9dee7d9b1e40b5ff484ce15bb1a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3685546961486152011, guid: abd0b9dee7d9b1e40b5ff484ce15bb1a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3685546961486152011, guid: abd0b9dee7d9b1e40b5ff484ce15bb1a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3685546961486152011, guid: abd0b9dee7d9b1e40b5ff484ce15bb1a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3685546961486152011, guid: abd0b9dee7d9b1e40b5ff484ce15bb1a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3685546961486152011, guid: abd0b9dee7d9b1e40b5ff484ce15bb1a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3685546961486152011, guid: abd0b9dee7d9b1e40b5ff484ce15bb1a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3685546961486152011, guid: abd0b9dee7d9b1e40b5ff484ce15bb1a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3685546961486152011, guid: abd0b9dee7d9b1e40b5ff484ce15bb1a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3685546961486152011, guid: abd0b9dee7d9b1e40b5ff484ce15bb1a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: abd0b9dee7d9b1e40b5ff484ce15bb1a, type: 3}
+--- !u!4 &341123635 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3685546961486152011, guid: abd0b9dee7d9b1e40b5ff484ce15bb1a, type: 3}
+  m_PrefabInstance: {fileID: 341123634}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &385447474
 GameObject:
   m_ObjectHideFlags: 0
@@ -3701,6 +3771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41897341ac5d05844b48ebc71b9cbbef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pc: {fileID: 0}
   levelConcierge: {fileID: 0}
 --- !u!114 &805320356
 MonoBehaviour:
@@ -9846,6 +9917,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042c2856e626d9f4888d5b6eb6bb5155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceToPillar: 5
+  pillarCollider: {fileID: 0}
 --- !u!1 &1878121479
 GameObject:
   m_ObjectHideFlags: 0
