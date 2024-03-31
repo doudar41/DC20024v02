@@ -79,3 +79,6 @@ crashlytics-build.properties
 # Jade's modules
 sh/
 .gitmodules
+
+# Meta files so annoying
+*.meta
